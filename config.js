@@ -1,8 +1,22 @@
 module.exports = {
+    appPath: "",
+    appSrc: "",
+    appPackage: "",
+    appDist: "",
+    publicUrl: "",
+    devtool: "source-map",
+    appPolyfills: [],
+    appEntryJs: "",
+    appEntryHtml: "",
     assest: {
         css: {
             name: "[name].[contenthash: 8].css",
             output: "static/css",
+        },
+        js: {
+            name: "[name].[chunkhash:8].js",
+            chunkName: "[name].[chunkhash:8].chunk.js",
+            output: "static/js"
         },
         media: {
             name: "[name].[hash:8].[ext]",
@@ -11,6 +25,10 @@ module.exports = {
             limit: 8192,
         }
     },
+    clean: {
+        enable: false,
+    },
+    IgnorePlugin: [/^\.[\\/]locale$/, /moment$/],
     //启用模块
     "module": {
         "babel": true,

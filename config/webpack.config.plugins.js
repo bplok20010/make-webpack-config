@@ -1,17 +1,28 @@
 const path = require('path');
-const paths = require('./paths');
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-module.exports = [
-    new CleanWebpackPlugin(path.basename(paths.appDist), {
-        root: paths.appPath
-    }),
+module.exports = function (cfg) {
+    const plugins = [
+        new webpack.IgnorePlugin(...cfg.IgnorePlugin)
+    ];
 
-    new MiniCssExtractPlugin({
-        filename: 'static/css/[name].[contenthash:8].css',
-    }),
+    if (cfg.clean.enable) {
+        const CleanWebpackPlugin = require('clean-webpack-plugin');
+        plugins.push(
+            new CleanWebpackPlugin(path.basename(cfg.appDist), {
+                root: cfg.appPath
+            })
+        );
+    }
 
-    new webpack.IgnorePlugin(/^\.[\\/]locale$/, /moment$/),
-];
+    if (cfg.module.css || cfg.module.less || cfg.module.sass) {
+        const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+        plugins.push(
+            new MiniCssExtractPlugin({
+                filename: cfg.assest.css.output + '/' + cfg.assest.css.name
+            })
+        );
+    }
+
+    return plugins;
+}
