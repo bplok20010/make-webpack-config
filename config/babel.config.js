@@ -1,5 +1,5 @@
 const browsers = require('./browserslist.config');
-const util = require('../util');
+const util = require('./util');
 const merge = require('webpack-merge');
 
 module.exports = function (cfg) {

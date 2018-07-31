@@ -12,7 +12,7 @@ module.exports = function (cfg) {
         },
         devtool: cfg.devtool, //测试环境用eval 提高编译速度 //"source-map",
         entry: {
-            app: [].concat(cfg.appPolyfills, cfg.appEntryJs),
+            app: [].concat(cfg.appPolyfills, path.resolve(cfg.appPath, cfg.appSrc, cfg.appEntryJs)),
         },
         output: {
             path: cfg.appDist,

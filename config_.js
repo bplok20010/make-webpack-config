@@ -1,13 +1,13 @@
 module.exports = {
-    appPath: "",
-    appSrc: "",
-    appPackage: "",
-    appDist: "",
+    appPath: ".",
+    appSrc: "src",
+    appPackage: "package.json",
+    appDist: "dist",
     publicUrl: "",
     devtool: "source-map",
     appPolyfills: [],
-    appEntryJs: "",
-    appEntryHtml: "",
+    appEntryJs: "index.js",
+    appEntryHtml: "index.html",
     assest: {
         css: {
             name: "[name].[contenthash: 8].css",
@@ -27,6 +27,9 @@ module.exports = {
     },
     clean: {
         enable: false,
+    },
+    manifest: {
+        enableMode: 'production', //线上环境开启manifest
     },
     IgnorePlugin: [/^\.[\\/]locale$/, /moment$/],
     //启用模块
@@ -49,6 +52,7 @@ module.exports = {
             "raw-loader",
             "url-loader",
             "extract-loader",
+            "html-webpack-plugin",
         ],
         "babel": [
             "babel-core",

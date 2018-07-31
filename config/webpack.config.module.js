@@ -1,6 +1,6 @@
 const path = require('path');
 const babelConfig = require('./babel.config');
-const util = require('../util');
+const util = require('./util');
 
 module.exports = function (cfg) {
     const rules = [];
