@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./test/src/app/Alert.js"],"names":["alert"],"mappings":";;;;;;;;;;;;;;;;AAAA;;;;AACA;;;;;;kBAEe,YAAI;AAClBA,OAAM,GAAN;AACA,C","file":"static\\js\\Alert.760784f1.chunk.js","sourcesContent":["import img from './static/c.png';\r\nimport React from \"react\";\r\n\r\nexport default ()=>{\r\n\talert(456)\t\r\n}"],"sourceRoot":""}

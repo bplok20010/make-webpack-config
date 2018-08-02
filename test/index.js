@@ -3,21 +3,26 @@ const webpack = require('webpack');
 const path = require('path');
 
 const cfg = {
+    mode: "development",
+    cleanDist: true,
+    watch: true,
+    devServer: true,
     appPath: path.resolve(process.cwd(), 'test'),
     module: {
         less: false,
         sass: true,
+        vue: true,
     }
 };
-
-process.env.NODE_ENV = "development";
 
 const deps = getDepsFromConfig(cfg);
 
 if (deps.length) {
     console.log('依赖尚未安装: %s', deps.join(' '));
 } else {
-    const compiler = webpack(createWebpackConfig(cfg));
+    const webpackCfg = createWebpackConfig(cfg);
+
+    const compiler = webpack(webpackCfg);
 
     compiler.run((err, stats) => {
         if (err) {

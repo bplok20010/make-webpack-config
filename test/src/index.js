@@ -1,24 +1,28 @@
 
-import App from './app';
+//import App from './app';
+
+import App from './test.vue';
 
 class A {
     static a = 3;
 }
 
-class B extends A {}
+class B extends A { }
 
-console.log(pkg, pkg5, html, md);
+console.log(App)
 
-const  {c,...a} = {c:4,a:3,b:6};
+//console.log(pkg, pkg5, html, md);
+
+const { c, ...a } = { c: 4, a: 3, b: 6 };
 
 // const jsx = <div t1="asdf" {...a}>asf</div>
 
 Promise.resolve('sdaf')
 
-export default function(templateParams) {
+export default function (templateParams) {
     if (process.env.NODE_ENV === 'development') console.log(window, history);
 
-    return (function(data) {
+    return (function (data) {
         let __t;
         let __p = '';
         __p += '<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset="UTF-8">\n    <title>' +
