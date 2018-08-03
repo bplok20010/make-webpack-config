@@ -1,5 +1,5 @@
 
-//import App from './app';
+//import App1 from './app';
 
 import App from './test.vue';
 
@@ -18,6 +18,8 @@ const { c, ...a } = { c: 4, a: 3, b: 6 };
 // const jsx = <div t1="asdf" {...a}>asf</div>
 
 Promise.resolve('sdaf')
+
+console.log(123)
 
 export default function (templateParams) {
     if (process.env.NODE_ENV === 'development') console.log(window, history);
